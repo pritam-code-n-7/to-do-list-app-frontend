@@ -19,7 +19,7 @@ function Dashboard() {
   return (
     <div>
       <p>{items ? "loading..." : "data loaded"}</p>
-      {items && <img className="h-1/2 w-1/2" src={items[9].url} alt="cat" />}
+      {items && <img className="h-1/2 w-1/2" src={items[4].url} alt="cat" />}
     </div>
   );
 }
