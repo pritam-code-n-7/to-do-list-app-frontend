@@ -5,6 +5,7 @@ import { BiSolidContact } from "react-icons/bi";
 import { MdDevicesOther } from "react-icons/md";
 import { AiOutlineLogin } from "react-icons/ai";
 import SidebarIcon from "./SidebarIcon";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
@@ -17,9 +18,9 @@ function Sidebar() {
           </span>
         </div>
         <ul className="space-y-2 font-medium">
-          <li>
+          <Link to="/dashboard">
             <SidebarIcon icon={<MdSpaceDashboard />} name={"Dashboard"} />
-          </li>
+          </Link>
           <li>
             <SidebarIcon icon={<FaInfoCircle />} name={"About Us"} />
           </li>
