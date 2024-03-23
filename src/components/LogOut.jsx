@@ -9,9 +9,10 @@ function AboutUs() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "https://api.coingecko.com/api/v3/global"
+          "https://jsonplaceholder.typicode.com/posts"
         );
         setItems(res.data);
+        console.log(res)
       } catch (error) {
         setError(error);
       }
@@ -28,7 +29,10 @@ function AboutUs() {
   return (
     <div>
       {itemsToShow.map((item, index) => (
-        <div key={index}>{/* Render each item here */}</div>
+        <div key={index}>
+          <p className="text-pretty border-b border-black font-bold">{item.title}</p>
+          <p>{item.body}</p>
+        </div>
       ))}
     </div>
   );

@@ -9,7 +9,7 @@ function AboutUs() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "https://api.coingecko.com/api/v3/global"
+          "https://jsonplaceholder.typicode.com/posts"
         );
         setItems(res.data);
       } catch (error) {
@@ -20,15 +20,15 @@ function AboutUs() {
   }, []);
 
   if (error) return <div>Error: {error.message}</div>;
-  if (!items) return <div>Loading...</div>;
+  if (!items.length) return <div>Loading...</div>;
   
-  // Display only the first 10 items
-  const itemsToShow = items && items.length > 10 ? items.slice(0, 10) : items;
-
   return (
     <div>
-      {itemsToShow.map((item, index) => (
-        <div key={index}>{item}</div>
+      {items.slice(0, 10).map((item) => (
+        <div key={item.id}>
+          <h2>{item.title}</h2>
+          <p>{item.body}</p>
+        </div>
       ))}
     </div>
   );
