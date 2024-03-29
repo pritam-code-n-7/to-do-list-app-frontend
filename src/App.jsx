@@ -7,6 +7,7 @@ import OurOtherProducts from "./components/OurOtherProducts";
 import LogOut from "./components/LogOut";
 import AboutUs from "./components/LogOut";
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +19,7 @@ function App() {
         <Route path="/ourotherproducts" element={<OurOtherProducts />} />
         <Route path="/logout" element={<LogOut />} />
         <Route path="/aboutus" element={<AboutUs/>}/>
+       
       </Routes>
     </BrowserRouter>
   );

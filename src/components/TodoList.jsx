@@ -23,13 +23,19 @@ const TodoList = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputValue.trim() === "") return;
-    setTodos([...todos, inputValue]);
+    const newTodo = {
+      id: Date.now(), // Generate unique timestamp
+      content: inputValue, // Todo content
+    };
+   
+
+    setTodos([...todos, newTodo]);
     setInputValue("");
     setInputHeight("38px");
   };
 
-  const handleDelete = (index) => {
-    setTodos(todos.filter((_, i) => i !== index));
+  const handleDelete = (id) => {
+    setTodos(todos.filter(todo=>todo.id !==id));
   };
 
   return (
@@ -38,11 +44,11 @@ const TodoList = () => {
         <h1 className="text-2xl font-semibold mb-5">Todo List</h1>
 
         <ul>
-          {todos.map((todo, index) => (
-            <li key={index} className="flex items-center gap-4 mb-2">
-              <span>{todo}</span>
+          {todos.map((todo) => (
+            <li key={todo.id} className="flex items-center gap-4 mb-2">
+              <span>{todo.content}</span>
               <button
-                onClick={() => handleDelete(index)}
+                onClick={() => handleDelete(todo.id)}
                 className="bg-red-500 text-white px-3 py-1 rounded"
               >
                 Delete
@@ -53,9 +59,9 @@ const TodoList = () => {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="md:fixed md:bottom-0 left-64 w-full max-w-screen-lg p-4 "
+        className="left-0 max-w-screen-lg p-4 absolute bottom-0 w-full"
       >
-        <div className="flex items-center border-b-2 border-blue-500 py-2">
+        <div className="flex items-center border-b-2 border-blue-500 py-2 ">
           <input
             type="text"
             style={{ height: inputHeight }}
