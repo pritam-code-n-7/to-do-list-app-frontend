@@ -18,13 +18,13 @@ function LogOut() {
           <div className="flex justify-between">
             <button
               className="px-4 py-2 bg-red-500 text-white rounded-md mr-2 hover:bg-red-600"
-              onClick={() => setLogout(false)}
+              onClick={handleLogout}
             >
               Yes
             </button>
             <button
               className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600"
-              onClick={handleLogout}
+              onClick={()=>setLogout(false)}
             >
               No
             </button>
